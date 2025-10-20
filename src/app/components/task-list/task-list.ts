@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Data, Task } from '../../services/data';
 
 @Component({
   selector: 'app-task-list',
@@ -8,4 +9,22 @@ import { Component } from '@angular/core';
 })
 export class TaskList {
 
+	tasks: Task[] = [];
+
+	constructor(private data: Data) { }
+
+	ngOnInit() {
+		console.log("ngOnInit");
+		this.data.getTasks().subscribe({
+			next: (data) => {
+				console.log(data)
+			},
+			error: (error) => {
+				console.error('Error fetching tasks: ', error);
+			},
+			complete: () => {
+				console.log('complete');
+			}
+		});
+	}
 }
