@@ -14,10 +14,10 @@ export class TaskList {
 	constructor(private data: Data) { }
 
 	ngOnInit() {
-		console.log("ngOnInit");
 		this.data.getTasks().subscribe({
 			next: (data) => {
-				console.log(data)
+				console.log(data);
+				this.tasks = data;
 			},
 			error: (error) => {
 				console.error('Error fetching tasks: ', error);

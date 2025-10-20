@@ -1,1 +1,6 @@
 <p>task-list works!</p>
+@for( task of tasks; track task.id ) {
+	<p>{{ task.id }} - {{ task.title }} - {{ task.description }} - {{ task.isComplete }} - {{ task.createdAt }}</p>
+} @empty {
+	<p>There are no items.</p>
+}

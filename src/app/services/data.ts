@@ -4,10 +4,10 @@ import { Observable } from 'rxjs';
 
 export interface Task {
 	id?: number;
-	Title: string;
-	Description: string;
-	IsComplete: boolean;
-	CreatedAt: Date;
+	title: string;
+	description: string;
+	isComplete: boolean;
+	createdAt: Date;
 }
 @Injectable({
   providedIn: 'root'
