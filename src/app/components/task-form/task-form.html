@@ -1,4 +1,13 @@
-<p>task-form works!</p>
-
-<input [(ngModel)]="taskTitle">
-<h1>{{taskTitle}}</h1>
+<label for="taskTitleText">Title</label>
+<input name="taskTitleText" id="taskTitleText" [(ngModel)]="taskTitle">
+<br>
+<label for="taskDescriptionText">Description</label>
+<input name="taskDescriptionText" id="taskDescriptionText" [(ngModel)]="taskDescription">
+<br>
+<label for="taskIsCompleteCheckbox">Is Complete</label>
+<input type="checkbox" name="taskIsCompleteCheckbox" id="taskIsCompleteCheckbox" [(ngModel)]="taskIsComplete">
+<br>
+<label for="taskCreatedAtDatetime">Created At</label>
+<input type="datetime-local" name="taskCreatedAtDatetime" id="taskCreatedAtDatetime" [(ngModel)]="taskCreatedAt">
+<br>
+<button (click)="handleSubmit()">{{submitButtonDisplayText}}</button>

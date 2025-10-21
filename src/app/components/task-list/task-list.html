@@ -1,6 +1,30 @@
-<p>task-list works!</p>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Is Complete</th>
+      <th>Created At</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
 @for( task of tasks; track task.id ) {
-	<p>{{ task.id }} - {{ task.title }} - {{ task.description }} - {{ task.isComplete }} - {{ task.createdAt }}</p>
+	<tr>
+		<td>{{ task.id }}</td>
+		<td>{{ task.title }}</td>
+		<td>{{ task.description }}</td>
+		<td>{{ task.isComplete }}</td>
+		<td>{{ convertDateToLocalString(task.createdAt) }}</td>
+		<td><a href="/items/edit/{{task.id}}">Edit Task</a></td>
+		<td><button type="button" (click)="deleteTask(task.id)">Delete Task</button></td>
+	</tr>
 } @empty {
-	<p>There are no items.</p>
+	<tr><td>There are no items.</td></tr>
 }
+  </tbody>
+</table>
+
+<a href="/items/add">Add Task</a>

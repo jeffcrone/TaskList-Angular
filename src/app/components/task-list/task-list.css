@@ -1,0 +1,29 @@
+table {
+	border-collapse: collapse;
+	font-family: monospace;
+}
+
+th, td {
+	border: 1px solid #2B2B2B;
+	padding: 0.25rem;
+	text-align: center;
+	white-space: nowrap;
+}
+
+th {
+	background-color: #2B2B2B;
+	color: white;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	position: sticky; /* Makes the headers sticky (see below for other sticky styles) */
+	top: 0; /* Sticks to the top of its table */
+	z-index: 1; /* Ensures the header stays on top of other rows */
+}
+
+tr:nth-child(even) {
+	background-color: #D4D4D4;
+}
+
+tr:hover {
+	background-color: #B5C7EB;
+}

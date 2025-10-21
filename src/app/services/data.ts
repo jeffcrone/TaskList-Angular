@@ -7,7 +7,7 @@ export interface Task {
 	title: string;
 	description: string;
 	isComplete: boolean;
-	createdAt: Date;
+	createdAt: string;
 }
 @Injectable({
   providedIn: 'root'

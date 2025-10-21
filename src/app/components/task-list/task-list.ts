@@ -16,15 +16,32 @@ export class TaskList {
 	ngOnInit() {
 		this.data.getTasks().subscribe({
 			next: (data) => {
-				console.log(data);
 				this.tasks = data;
 			},
 			error: (error) => {
 				console.error('Error fetching tasks: ', error);
 			},
 			complete: () => {
-				console.log('complete');
 			}
 		});
+	}
+
+	convertDateToLocalString(dateToConvert: string) {
+		return new Date(dateToConvert).toLocaleString();
+	}
+
+	deleteTask(id: number | undefined) {
+		if( id && confirm("Are you sure you want to delete task " + id + "?") ) {
+			this.data.deleteTask(id).subscribe({
+				error: (error) => {
+					console.error('Error deleting task: ', error);
+				},
+				complete: () => {
+					window.location.reload();
+
+					console.log('Deleted task ', id);
+				}
+			});
+		}
 	}
 }
