@@ -55,7 +55,14 @@ export class TaskForm {
 				isComplete: this.taskIsComplete || false,
 				createdAt: this.taskCreatedAt || ""
 			};
-			this.data.updateTask(updateTask).subscribe();
+			this.data.updateTask(updateTask).subscribe({
+				error: (error) => {
+					console.error('Error updating task: ', error);
+				},
+				complete: () => {
+					alert("Task updated successfully.");
+				}
+			});
 		} else {
 			// Save
 			let saveTask: Task = {
@@ -64,7 +71,14 @@ export class TaskForm {
 				isComplete: this.taskIsComplete || false,
 				createdAt: this.taskCreatedAt || ""
 			};
-			this.data.addTask(saveTask).subscribe();
+			this.data.addTask(saveTask).subscribe({
+				error: (error) => {
+					console.error('Error saving task: ', error);
+				},
+				complete: () => {
+					alert("Task added successfully.");
+				}
+			});
 		}
 	}
 }
